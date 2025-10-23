@@ -1,0 +1,607 @@
+/* ========================================================= */
+/* 1. CSS VARIABLES (GLOBAL THEME) */
+/* ========================================================= */
+
+/* --- GENERAL APP COLORS --- */
+:root {
+  --primary-color: #ff6347; /* Main brand color (Tomato) */
+  --primary-color-dark: #e5533d;
+  --background-color: #f8f9fa; /* Page background */
+  --surface-color: #ffffff; /* Header or card background */
+  --text-primary: #2c3e50; /* Primary text color */
+  --text-secondary: #7f8c8d; /* Light text color */
+  --border-color: #ecf0f1; /* Border color */
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --focus-ring-color: rgba(255, 99, 71, 0.3);
+}
+
+/* --- RECIPE DETAIL (PREMIUM THEME) COLORS --- */
+:root {
+  --color-primary: #e65100; /* Deep Burnt Orange (Main Accent) */
+  --color-secondary: #ffb300; /* Rich Amber Gold (Highlight) */
+  --color-title-bg: #3e2723; /* Dark Espresso Brown for Title Background */
+  --color-text-dark: #424242; /* Dark Charcoal for Headings */
+  --color-text-gray: #bdbdbd; /* Muted Light Gray */
+  --color-bg-light: #fffde7; /* Extra Light Cream/Yellowish White */
+  --color-white: #ffffff;
+}
+
+/* ========================================================= */
+/* 2. BASE AND UTILITY STYLES */
+/* ========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: var(--background-color);
+}
+.container-main-app {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.content-container {
+  display: flex;
+  padding: 20px 30px;
+  gap: 30px;
+  min-height: 80vh;
+}
+
+/* ========================================================= */
+/* 3. HEADER STYLES */
+/* ========================================================= */
+
+/* Header Container Style */
+.main-header {
+  background-color: var(--surface-color);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Logo and Title Section */
+.header-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-logo img {
+  height: 60px;
+  margin-right: 15px;
+}
+
+/* Search Bar Section */
+.search-container {
+  display: flex;
+  flex-grow: 1;
+  max-width: 500px;
+  background-color: var(--background-color);
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow-color);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Shadow effect on focus */
+.search-container:focus-within {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px var(--focus-ring-color);
+}
+
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-primary);
+}
+
+.search-container button {
+  padding: 0 25px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  border-radius: 0 50px 50px 0;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+/* Action Buttons Section */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.action-button:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* ========================================================= */
+/* 4. LEFT SIDEBAR (FOOD LIST) STYLES */
+/* ========================================================= */
+
+.left-sidebar {
+  width: 35%;
+  overflow-y: auto;
+  border-right: 1px solid var(--border-color);
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+  overflow-y: hidden;
+}
+
+/* Individual Food Item (LI) Styles */
+.food-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: var(--surface-color);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.food-item:hover {
+  box-shadow: 0 2px 8px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+.food-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.food-title {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.shop-name {
+  margin: 3px 0 0 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Pagination Button Styles */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  flex-shrink: 0;
+}
+
+.pagination-controls button {
+  background-color: var(--surface-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s, color 0.2s;
+  width: 48%;
+}
+
+.pagination-controls button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+.pagination-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--background-color);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+/* 6. RIGHT MAIN CONTENT (RECIPE DETAIL) STYLES */
+/* ========================================================= */
+
+.main-content {
+  width: 65%;
+  padding-left: 0;
+}
+
+.recipe-detail-box {
+  background-color: var(--color-bg-light);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+/* Image Section */
+.recipe__fig {
+  position: relative;
+  flex: 0 0 25vh;
+  max-height: 400px;
+  /* width: 100%; */
+}
+
+.recipe__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 280px;
+  filter: brightness(0.75) grayscale(0.1);
+}
+
+/* Title Styling */
+.recipe__title {
+  width: 500px;
+  position: static;
+  transform: none;
+  display: inline;
+  /* background-color: linear-gradient(to right bottom, #fbdb89, #f48982); */
+  background-color: #f48982;
+  color: var(--background-color);
+  padding: 0.8rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  line-height: 1;
+  /* letter-spacing: 0.15rem; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+.recipe__title span {
+  display: inline-block;
+}
+.recipe__title :not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Details Section */
+.recipe__details {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 4rem;
+  background-color: var(--color-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  gap: 4rem;
+}
+
+.recipe__info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Icons */
+.icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin-right: 0.5rem;
+  box-shadow: none;
+}
+
+.icon-placeholder i {
+  font-size: 1.2rem;
+  color: #656f6c;
+}
+
+.recipe__info-data {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+.recipe__info-text {
+  font-size: 1.2rem;
+  color: var(--color-text-gray);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Tiny Buttons (Servings) */
+.btn--tiny {
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-text-gray);
+  border-radius: 50%;
+  height: 2.2rem;
+  width: 2.2rem;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn--tiny:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+/* Round Button (Bookmark) */
+.btn--round {
+  background: rgb(64, 62, 62);
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-left: auto;
+  box-shadow: 0 0.5rem 0.5rem rgba(61, 60, 60, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.bookmark-icon {
+  color: var(--color-white);
+  /* color: rgb(253, 153, 2); */
+  font-size: 1.2rem;
+}
+
+/* Main Content (Ingredients & Directions) */
+.recipe-main-sections {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe__ingredients-box {
+  flex-grow: 1;
+  padding: 2rem 4rem 1.5rem 4rem;
+  background-color: var(--color-white);
+  overflow-y: auto;
+}
+
+/* Headings */
+.heading--2 {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+}
+
+.heading--2::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  height: 2px;
+  background-color: var(--color-secondary);
+  position: absolute;
+  bottom: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.recipe__ingredient-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem 2rem;
+}
+
+.recipe__ingredient {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--color-text-dark);
+  border-bottom: 1px dotted var(--color-text-gray);
+  padding-bottom: 0.1rem;
+}
+
+.small-check {
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  margin-right: 0.4rem;
+}
+
+.recipe__quantity {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-right: 0.3rem;
+}
+
+/* Directions (Fixed Footer) */
+.recipe__directions {
+  flex: 0 0 auto;
+  padding: 1.5rem 4rem;
+  text-align: center;
+  background-color: var(--color-bg-light);
+  border-top: 1px solid #e0e0e0;
+}
+
+.recipe__directions-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
+  margin-bottom: 3rem;
+}
+
+/* Small Button (Directions Link) */
+.btn--small {
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #fdfcfc;
+  background-color: #f48982;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ✨ Back shadow */
+}
+
+.btn--small:hover {
+  background-color: #f59a83;
+  transform: scale(1.05);
+}
+
+.small-arrow {
+  color: #e9e2e1;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+/* ========================================================= */
+/* 7. RESPONSIVENESS (MEDIA QUERIES) */
+/* ========================================================= */
+
+/* --- TABLET/SMALLER DESKTOP (Max-Width: 992px) --- */
+@media (max-width: 992px) {
+  /* Header Layout Change */
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .search-container {
+    max-width: 100%;
+    width: 100%;
+    order: 3; /* Displays the search bar last */
+  }
+  .header-logo {
+    order: 1;
+  }
+  .header-actions {
+    order: 2;
+  }
+  .recipe__ingredient-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* --- LARGE MOBILE (Max-Width: 768px) --- */
+@media (max-width: 768px) {
+  /* Main Content Layout Change (Sidebar becomes full width) */
+  .content-container {
+    flex-direction: column;
+  }
+  .left-sidebar,
+  .main-content {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    margin-bottom: 20px;
+  }
+}
+
+/* --- SMALL MOBILE (Max-Width: 576px) --- */
+@media (max-width: 576px) {
+  /* Header Adjustments */
+  .header-logo h1 {
+    font-size: 20px;
+  }
+
+  /* Action Buttons become circular icons only */
+  .action-button span {
+    display: none;
+  }
+  .action-button {
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Recipe Detail Adjustments */
+  .recipe__fig {
+    flex: 0 0 15vh;
+    max-height: 200px;
+  }
+
+  .recipe__title {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .recipe__details {
+    flex-wrap: wrap;
+    padding: 0.8rem 0.5rem;
+    gap: 1rem;
+    justify-content: space-around;
+  }
+
+  .recipe__ingredients-box {
+    padding: 1rem 1rem;
+  }
+
+  .recipe__ingredient-list {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .recipe__directions {
+    padding: 0.8rem 1rem;
+  }
+
+  .btn--small {
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+  }
+  .recipe__info-data {
+    font-size: 1.2rem;
+  }
+  .recipe__info-text {
+    font-size: 1rem;
+  }
+}

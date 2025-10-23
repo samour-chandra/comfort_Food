@@ -1,0 +1,80 @@
+/* --- Right Main Content (70%) Skeleton Styles with NEW Class Names --- */
+
+/* Replaces .content-skeleton */
+.recipe-loader-container {
+  padding: 10px 0;
+  width: 100%;
+
+  /* Full Height Configuration */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. Image Placeholder - Replaces .skeleton-img.main-figure */
+.recipe-loader-figure {
+  width: 100%;
+  height: 25vh;
+  max-height: 300px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  flex-shrink: 0;
+
+  /* You must ensure the base skeleton styles are inherited or copied here */
+  /* This assumes you've updated your base styles to also target these new classes */
+}
+
+/* 2. Large Title Placeholder - Replaces .skeleton-line.large-title */
+.recipe-loader-title {
+  width: 50%;
+  height: 35px;
+  margin: 0 auto 30px auto;
+  flex-shrink: 0;
+}
+
+/* 3. Details/Metadata Placeholder - Replaces .skeleton-details-row */
+.recipe-loader-details-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+/* Replaces .skeleton-line.detail-info */
+.recipe-loader-detail-item {
+  width: 100px;
+  height: 18px;
+  margin-bottom: 0;
+}
+
+/* 4. Ingredients List Placeholder - Replaces .skeleton-list-grid */
+.recipe-loader-grid-area {
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 0 40px;
+}
+
+/* Replaces .skeleton-list-wrapper */
+.recipe-loader-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+}
+
+/* Replaces .skeleton-line.ingredient-item */
+.recipe-loader-line-item {
+  width: 80%;
+  height: 12px;
+  margin-bottom: 0;
+}
+
+/* 5. Footer Bar - Specific style for the bottom bar */
+.recipe-loader-footer-bar {
+  border-bottom: none; /* Remove the bottom border for the footer element */
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////  */

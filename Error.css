@@ -1,0 +1,116 @@
+/* The Main Container (Now acts as the single error box) */
+.main-recipe-error-full {
+  max-width: 650px; /* Max width set to simulate the 65% size */
+  width: 90%;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* --- 2. TEXT AND ICON STYLES (Small) --- */
+.header-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  color: #ff7043;
+}
+
+.support-icon {
+  font-size: 1.2em; /* Small icon */
+  margin-right: 8px;
+}
+
+.error-code {
+  font-size: 0.85em; /* Small text */
+  font-weight: bold;
+}
+
+.main-title-small {
+  font-size: 2em; /* Smaller H1 */
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.main-message-small {
+  font-size: 0.95em; /* Small message font */
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* --- 3. BUTTON STYLE --- */
+.button {
+  display: inline-block;
+  padding: 8px 15px; /* Small button padding */
+  margin: 8px auto;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9em; /* Small font size */
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.primary-button {
+  background-color: #ff5722;
+  color: white;
+  border: 2px solid #ff5722;
+}
+
+.primary-button:hover {
+  background-color: #e64a19;
+  transform: scale(1.05);
+}
+
+/* --- 4. ANIMATIONS --- */
+
+/* Animation Area (Flipping Egg) */
+.animation-area {
+  height: 120px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* The Frying Pan */
+.pan {
+  width: 80px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 0 0 8px 8px;
+  position: relative;
+  margin-bottom: 15px;
+}
+.pan::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: 0;
+  width: 40px;
+  height: 8px;
+  background-color: #444;
+}
+
+/* The Egg (The animated element) */
+.egg {
+  position: absolute;
+  font-size: 3em;
+  transform: translate(0, 0);
+  animation: flip-egg 2s infinite ease-in-out;
+}
+
+@keyframes flip-egg {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px) rotate(90deg);
+    opacity: 0.9;
+  }
+}

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comfort Food</title>
+    <link rel="icon" type="image/x-icon" href="images/logotop.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Font Awesome for Social Icons -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="lodingSkiliton.css" />
+    <link rel="stylesheet" href="Error.css" />
+  </head>
+  <body>
+    <div class="container-main-app">
+      <header class="main-header">
+        <div class="header-logo">
+          <img src="images/food.png" alt="Food Logo" />
+        </div>
+
+        <div class="search-container">
+          <input type="text" placeholder="Search for recipes..." />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <div class="header-actions">
+          <button class="action-button">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Recipe</span>
+          </button>
+          <button class="action-button">
+            <i class="fa-solid fa-bookmark"></i>
+            <span>Bookmarks</span>
+          </button>
+        </div>
+      </header>
+      <main class="content-container">
+        <section class="left-sidebar">
+          <ul class="food-list">
+            <!-- This is the food list Searching  -->
+            <li class="search-result-item skeleton-list-item">
+              <div class="skeleton-image-placeholder"></div>
+              <div class="item-details">
+                <div class="item-title skeleton-line short"></div>
+                <div class="item-desc skeleton-line full"></div>
+              </div>
+            </li>
+
+            <li class="search-result-item skeleton-list-item">
+              <div class="skeleton-image-placeholder"></div>
+              <div class="item-details">
+                <div class="item-title skeleton-line short"></div>
+                <div class="item-desc skeleton-line full"></div>
+              </div>
+            </li>
+
+            <li class="search-result-item skeleton-list-item">
+              <div class="skeleton-image-placeholder"></div>
+              <div class="item-details">
+                <div class="item-title skeleton-line short"></div>
+                <div class="item-desc skeleton-line full"></div>
+              </div>
+            </li>
+
+            <li class="search-result-item skeleton-list-item">
+              <div class="skeleton-image-placeholder"></div>
+              <div class="item-details">
+                <div class="item-title skeleton-line short"></div>
+                <div class="item-desc skeleton-line full"></div>
+              </div>
+            </li>
+
+            <!-- loding End -->
+            <li class="food-item">
+              <img src="images/recipe 1.jpeg" alt="Spicy Noodles" />
+              <div class="item-details">
+                <h3 class="food-title">Spicy Chili Noodles</h3>
+                <p class="shop-name">The Noodle Hub</p>
+              </div>
+            </li>
+            <li class="food-item">
+              <img src="images/recipe 1.jpeg" alt="Spicy Noodles" />
+              <div class="item-details">
+                <h3 class="food-title">Spicy Chili Noodles</h3>
+                <p class="shop-name">The Noodle Hub</p>
+              </div>
+            </li>
+
+            <li class="food-item">
+              <img src="path/to/food_image_2.jpg" alt="Chicken Biryani" />
+              <div class="item-details">
+                <h3 class="food-title">Classic Chicken Biryani</h3>
+                <p class="shop-name">Bhojona Ghor</p>
+              </div>
+            </li>
+
+            <li class="food-item">
+              <img src="path/to/food_image_3.jpg" alt="Chocolate Cake" />
+              <div class="item-details">
+                <h3 class="food-title">Velvet Chocolate Cake</h3>
+                <p class="shop-name">Sweet Corner Bakery</p>
+              </div>
+            </li>
+          </ul>
+          <!-- pagination container here -->
+          <div class="pagination-controls">
+            <button class="prev-button">&larr; Prev</button>
+            <button class="next-button">Next &rarr;</button>
+          </div>
+        </section>
+
+        <section class="main-content">
+          <!-- Error section -->
+          <!-- <div class="main-recipe-error-full">
+            <div class="header-line">
+              <span class="support-icon">🧑‍🍳</span>
+              <p class="error-code">Error: Recipe Dish Missing</p>
+            </div>
+
+            <div class="animation-area">
+              <div class="pan-animation">
+                <div class="pan"></div>
+                <div class="egg">🍳</div>
+              </div>
+            </div>
+
+            <h1 class="main-title-small">Recipe Not Found!</h1>
+
+            <p class="main-message-small">
+              The requested dish is currently unavailable. Please **try
+              searching using a simpler or different name** to explore our menu.
+            </p>
+
+            <a href="/popular" class="button primary-button">
+              Explore Popular Dishes
+            </a>
+          </div> -->
+          <!-- Error section end here -->
+          <div class="main-content">
+            <div class="content-skeleton">
+              <div class="skeleton-img main-figure shimmer"></div>
+
+              <div class="skeleton-line large-title"></div>
+
+              <div class="skeleton-details-row">
+                <div class="skeleton-line detail-info"></div>
+                <div class="skeleton-line detail-info"></div>
+                <div class="skeleton-line detail-info"></div>
+              </div>
+
+              <div class="skeleton-list-grid">
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+                <div class="skeleton-line ingredient-item"></div>
+              </div>
+            </div>
+          </div>
+          <!-- This is main recipe makup  -->
+
+          <!-- <div class="recipe-detail-box">
+            <figure class="recipe__fig">
+              <img
+                src="images/recipe 1.jpeg"
+                alt="Gourmet Dish"
+                class="recipe__img"
+              />
+            </figure>
+
+            <h1 class="recipe__title">
+              <span>Gourmet Spinach</span>
+              <span>and Ricotta Lasagna</span>
+            </h1>
+
+            <div class="recipe__details">
+              <div class="recipe__info">
+                <span class="icon-placeholder"
+                  ><i class="fas fa-clock"></i
+                ></span>
+                <span class="recipe__info-data recipe__info-data--minutes"
+                  >90</span
+                >
+                <span class="recipe__info-text">MINUTES</span>
+              </div>
+
+              <div class="recipe__info">
+                <span class="icon-placeholder"
+                  ><i class="fas fa-users"></i
+                ></span>
+                <span class="recipe__info-data recipe__info-data--people"
+                  >6</span
+                >
+                <span class="recipe__info-text">SERVINGS</span>
+
+                <div class="recipe__info-buttons">
+                  <button class="btn--tiny btn--decrease-servings">
+                    <span>-</span>
+                  </button>
+                  <button class="btn--tiny btn--increase-servings">
+                    <span>+</span>
+                  </button>
+                </div>
+              </div>
+
+              <button class="btn--round">
+                <i class="fas fa-bookmark bookmark-icon"></i>
+              </button>
+            </div>
+
+            <div class="recipe-main-sections">
+              <div class="recipe__ingredients-box">
+                <h2 class="heading--2">Ingredients Checklist</h2>
+                <ul class="recipe__ingredient-list">
+                  <li class="recipe__ingredient">
+                    <i class="fas fa-check-circle small-check"></i>
+                    <div class="recipe__quantity">500</div>
+                    <div class="recipe__description">
+                      <span class="recipe__unit">g</span> Fresh Spinach
+                    </div>
+                  </li>
+                  <li class="recipe__ingredient">
+                    <i class="fas fa-check-circle small-check"></i>
+                    <div class="recipe__quantity">500</div>
+                    <div class="recipe__description">
+                      <span class="recipe__unit">g</span> Fresh Spinach
+                    </div>
+                  </li>
+                  <li class="recipe__ingredient">
+                    <i class="fas fa-check-circle small-check"></i>
+                    <div class="recipe__quantity">250</div>
+                    <div class="recipe__description">
+                      <span class="recipe__unit">g</span> Ricotta Cheese
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="recipe__directions">
+                <h2 class="heading--2">Preparation Instructions</h2>
+                <p class="recipe__directions-text">
+                  This gourmet recipe was lovingly crafted by **Chef's Table**.
+                  Follow the detailed steps below for a stunning result.
+                </p>
+                <a class="btn--small recipe__btn" href="#" target="_blank">
+                  <span>VIEW FULL GUIDE</span>
+                  <i class="fas fa-arrow-right small-arrow"></i>
+                </a>
+              </div>
+            </div>
+          </div> -->
+          <!-- recipe detail box end -->
+        </section>
+      </main>
+
+      <!-- footer section here -->
+      <footer class="bg-custom-dark text-gray-200 pt-10 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- 1. Logo, Links, and Social Media Section -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8"
+          >
+            <!-- Column 1: Logo and Introduction -->
+            <div class="md:col-span-2">
+              <div class="flex items-center mb-4">
+                <i
+                  class="fas fa-utensils text-3xl text-custom-primary mr-2"
+                ></i>
+                <span class="text-2xl font-extrabold text-white tracking-wider"
+                  >Comfort food</span
+                >
+              </div>
+              <p class="text-gray-400 text-sm max-w-sm">
+                Stay with us to discover new recipes, tips, and healthy eating
+                habits every day.
+              </p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div>
+              <h3
+                class="text-lg font-semibold text-white mb-4 uppercase tracking-wider"
+              >
+                Quick Links
+              </h3>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >All Recipes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >Cooking Tips</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >About Us</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Contact & Social Media -->
+            <div>
+              <h3
+                class="text-lg font-semibold text-white mb-4 uppercase tracking-wider"
+              >
+                Contact
+              </h3>
+              <ul class="space-y-2 mb-4">
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >Get in Touch</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="text-gray-400 hover:text-custom-primary footer-link"
+                    >Privacy Policy</a
+                  >
+                </li>
+              </ul>
+
+              <!-- Social Media Icons (FB, WA, Git) -->
+              <h3
+                class="text-lg font-semibold text-white mb-3 uppercase tracking-wider"
+              >
+                Social Media
+              </h3>
+              <div class="flex space-x-4">
+                <!-- Facebook -->
+                <a
+                  href="#"
+                  target="_blank"
+                  class="text-gray-400 hover:text-blue-500 transition duration-200"
+                  aria-label="Facebook"
+                >
+                  <i class="fab fa-facebook-f text-2xl"></i>
+                </a>
+                <!-- WhatsApp -->
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  class="text-gray-400 hover:text-green-500 transition duration-200"
+                  aria-label="WhatsApp"
+                >
+                  <i class="fab fa-whatsapp text-2xl"></i>
+                </a>
+                <!-- GitHub (Git) -->
+                <a
+                  href="#"
+                  target="_blank"
+                  class="text-gray-400 hover:text-white transition duration-200"
+                  aria-label="GitHub"
+                >
+                  <i class="fab fa-github text-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Copyright and Credit Section -->
+          <div
+            class="mt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500"
+          >
+            <p class="text-center md:text-left mb-2 md:mb-0">
+              &copy; 2024 Food Planet. All rights reserved.
+            </p>
+            <p class="text-center md:text-right text-sm">
+              Created by
+              <span class="text-custom-primary font-medium"
+                >Samour Chandra</span
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

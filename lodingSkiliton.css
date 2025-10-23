@@ -1,0 +1,207 @@
+/* --- CSS VARIABLES (হালকা অ্যানিমেশনের জন্য রঙের মান পরিবর্তন করা হলো) --- */
+:root {
+  /* Base light gray color - কিছুটা গাঢ় রাখা হলো যাতে পার্থক্য বোঝা যায় */
+  --skeleton-color-light: #e6e6e6;
+  /* Shimmer highlight color - এখন হালকা ধূসর, আগের সাদা নয় */
+  --skeleton-color-highlight: #f7f7f7;
+  --border-color: #e0e0e0;
+}
+
+/* --- 1. CORE STYLES AND LAYOUT FIXES --- */
+
+/* Outer Wrapper (main-content) */
+.main-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* নিশ্চিত করুন যে main-content এর আশেপাশে কোনো ফিক্সড সাইজ নেই */
+}
+
+/* Inner Skeleton Box */
+.content-skeleton {
+  padding: 20px;
+  width: 100%;
+  max-width: 700px; /* ডেস্কটপে এই সর্বোচ্চ প্রস্থ বজায় থাকবে */
+  margin: 0 auto;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  border: none;
+  overflow: hidden;
+}
+
+/* Base style for all placeholder elements (Lines are static and lighter) */
+.skeleton-line {
+  background-color: var(--skeleton-color-light);
+  border-radius: 4px;
+  height: 15px;
+  margin-bottom: 10px;
+}
+
+/* --- 2. IMAGE ANIMATION SETUP (Light Effect) --- */
+.skeleton-img.main-figure {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto 30px auto;
+  border-radius: 4px;
+  overflow: hidden;
+
+  /* Animation Gradient Setup (রঙের মান হালকা করা হয়েছে) */
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 1000px 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* --- 3. LAYOUT COMPONENTS --- */
+
+/* Details Row - Ensure flexibility on mobile */
+.skeleton-details-row {
+  display: flex;
+  justify-content: space-around; /* Changed from center to space-around for better spacing */
+  flex-wrap: wrap; /* Added for responsiveness */
+  gap: 10px; /* Reduced gap for mobile */
+  padding: 20px 0;
+  border-top: none;
+  border-bottom: none;
+  margin-bottom: 30px;
+}
+.skeleton-line.detail-info {
+  width: 100px;
+  height: 18px;
+  margin-bottom: 0;
+  flex-shrink: 0; /* Ensures it doesn't shrink too much */
+}
+
+/* Grid List (Ingredients) - Flex on mobile */
+.skeleton-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+  padding: 0 40px;
+}
+
+/* --- 4. ANIMATION KEYFRAMES (Same values as requested) --- */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+/* --- 5. RESPONSIVENESS FIX --- */
+@media (max-width: 768px) {
+  /* For smaller tablets/large phones */
+  .skeleton-list-grid {
+    gap: 15px 20px;
+    padding: 0 20px;
+  }
+  .skeleton-img.main-figure {
+    height: 250px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* For standard mobile phones */
+  .content-skeleton {
+    padding: 10px;
+  }
+  .skeleton-img.main-figure {
+    height: 180px;
+  }
+  .skeleton-line.large-title {
+    height: 25px;
+  }
+  /* Grid stacks into one column on mobile */
+  .skeleton-list-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 10px;
+  }
+  /* Detail info row may wrap, which is acceptable */
+}
+/* this is for left side 30% section */
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Styles applied specifically to the skeleton state */
+.skeleton-list-item {
+  /* Use 'loading' cursor to indicate data retrieval */
+  cursor: wait !important;
+}
+
+/* Base style for all skeleton lines/placeholders */
+.skeleton-list-item .skeleton-line,
+.skeleton-list-item .skeleton-image-placeholder {
+  /* Background gradient for the shimmer effect */
+  background-color: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* --- 2. IMAGE PLACEHOLDER STYLES --- */
+
+.skeleton-list-item .skeleton-image-placeholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+/* --- 3. TEXT LINE STYLES --- */
+
+.skeleton-list-item .item-details {
+  flex-grow: 1;
+}
+
+.skeleton-list-item .skeleton-line {
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.skeleton-list-item .skeleton-line.short {
+  /* Represents the item title */
+  width: 60%;
+}
+
+.skeleton-list-item .skeleton-line.full {
+  /* Represents the item description/details */
+  width: 90%;
+}
+
+/* --- 4. SHIMMER ANIMATION --- */
+
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
