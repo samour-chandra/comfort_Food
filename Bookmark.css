@@ -1,0 +1,135 @@
+/* Custom Sidebar Styles with 'tw-' prefix */
+
+/* Sidebar Container (Right-Aligned, Hidden by default) */
+.tw-bookmark-sidebar {
+  height: 100%;
+  width: 0; /* Initially hidden */
+  position: absolute;
+  z-index: 1000; /* Must be high to overlay other elements */
+  top: 0;
+  right: 0;
+  left: auto;
+
+  max-height: 100vh;
+
+  background-color: rgba(255, 245, 230, 0.98); /* Light background */
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  transition: width 0.4s ease-in-out;
+  padding-top: 70px;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.tw-bookmark-sidebar.tw-active {
+  width: 360px; /* Width when open */
+}
+
+.tw-food-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+/* List Item Style */
+.tw-food-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 15px 15px;
+  margin: 10px 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+/* Hover Effect: Green Border and Lift */
+.tw-food-item:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+
+  border: 1px solid #3cb371; /* Green Hover Accent */
+  box-shadow: 0 5px 12px rgba(60, 179, 113, 0.35);
+}
+
+/* Image Style */
+.tw-food-item img {
+  width: 85px;
+  height: 81px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 1px solid #ffdab9;
+  flex-shrink: 0;
+}
+
+/* Delete Icon Style */
+.tw-delete-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ff7f50;
+  font-size: 16px;
+  opacity: 0.2;
+  transition: opacity 0.3s, transform 0.3s;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.tw-food-item:hover .tw-delete-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.tw-delete-icon:hover {
+  color: #ffffff;
+  background-color: #ff7f50;
+}
+
+/* Close Button (X) Style */
+.tw-bookmark-sidebar .tw-closebtn {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 28px;
+  text-decoration: none;
+  color: #ff7f50;
+  padding: 5px 8px;
+  background: none;
+  border-radius: 50%;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.tw-bookmark-sidebar .tw-closebtn:hover {
+  color: #ff4500;
+  background-color: transparent;
+}
+
+/* Sidebar Title Style */
+.tw-sidebar-title {
+  padding: 8px 15px;
+  color: #ff7f50;
+  font-size: 24px;
+  border-bottom: 2px solid #ffdab9;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .tw-bookmark-sidebar.tw-active {
+    width: 100%;
+    max-height: 100vh;
+  }
+}

@@ -13,7 +13,8 @@
     />
     <!-- css file here -->
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="Bookmark.css" />
     <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="lodingSkiliton.css" />
     <link rel="stylesheet" href="Error.css" />
@@ -41,16 +42,107 @@
         </div>
 
         <div class="header-actions">
-          <button class="action-button login-button ">
+          <button class="action-button login-button">
             <i class="fa-solid fa-user"></i>
             <span>Account</span>
           </button>
-          <button class="action-button">
+          <button class="action-button book-mark-button" id="myBookmarkToggle">
             <i class="fa-solid fa-bookmark"></i>
             <span>Bookmarks</span>
           </button>
         </div>
       </header>
+      <!-- Bookmark side bar markup  -->
+      <div id="twBookmarkSidebar" class="tw-bookmark-sidebar">
+        <a href="javascript:void(0)" class="tw-closebtn">&times;</a>
+        <h2 class="tw-sidebar-title">My Marked foods</h2>
+        <ul id="twFoodList" class="tw-food-list">
+          <li class="tw-food-item" id="tw-item-1">
+            <img src="images/download14.jpeg" alt="Spicy Chili Noodles" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Spicy Chili Noodles (Best Seller)</h3>
+              <p class="tw-shop-name">The Noodle Hub</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-1"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-2">
+            <img src="images/download12.jpeg" alt="Grilled Fish" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Grilled Peri Peri Fish</h3>
+              <p class="tw-shop-name">The Seafood Grill</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-2"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-3">
+            <img src="images/download3.jpeg" alt="Chicken Biryani" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Classic Chicken Biryani</h3>
+              <p class="tw-shop-name">The Biryani House</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-3"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-3">
+            <img src="images/download6.jpeg" alt="Chicken Biryani" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Classic Chicken Biryani</h3>
+              <p class="tw-shop-name">The Biryani House</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-3"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-3">
+            <img src="images/download11.jpeg" alt="Chicken Biryani" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Classic Chicken Biryani</h3>
+              <p class="tw-shop-name">The Biryani House</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-3"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-3">
+            <img src="images/download8.jpeg" alt="Chicken Biryani" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Classic Chicken Biryani</h3>
+              <p class="tw-shop-name">The Biryani House</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-3"
+            ></i>
+          </li>
+
+          <li class="tw-food-item" id="tw-item-3">
+            <img src="images/download.5.jpeg" alt="Chicken Biryani" />
+            <div class="tw-item-details">
+              <h3 class="tw-food-title">Classic Chicken Biryani</h3>
+              <p class="tw-shop-name">The Biryani House</p>
+            </div>
+            <i
+              class="fas fa-trash-alt tw-delete-icon"
+              data-item-id="tw-item-3"
+            ></i>
+          </li>
+        </ul>
+      </div>
+      <!-- Bookmark side bar markup  End -->
       <main class="content-container">
         <section class="left-sidebar">
           <ul class="food-list">
@@ -435,97 +527,181 @@
       </footer>
     </div>
     <!-- login button start -->
-     <!-- 2. Main Modal Overlay -->
+    <!-- 2. Main Modal Overlay -->
     <div id="form-modal" class="modal-overlay">
-    <!-- 3. Form Card Container (White background, premium design) -->
-    <div id="form-card" class="bg-white p-6 sm:p-8 w-full max-w-sm form-card-animation relative rounded-xl shadow-2xl">
-
+      <!-- 3. Form Card Container (White background, premium design) -->
+      <div
+        id="form-card"
+        class="bg-white p-6 sm:p-8 w-full max-w-sm form-card-animation relative rounded-xl shadow-2xl"
+      >
         <!-- Close Button (Cross icon) -->
-        <button onclick="toggleModal(false)" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition duration-200">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+        <button
+          onclick="toggleModal(false)"
+          class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
         </button>
 
         <!-- 4. SIGNUP Form (Default visible state) -->
         <div id="signup-form" class="space-y-4">
-            <h2 class="text-2xl font-bold text-gray-800 mb-5 text-center">Create Account</h2>
+          <h2 class="text-2xl font-bold text-gray-800 mb-5 text-center">
+            Create Account
+          </h2>
 
-            <!-- First & Last Name Inputs (Split into two columns) -->
-            <div class="flex space-x-3">
-                <div class="relative w-1/2">
-                    <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                    <input type="text" placeholder="First Name" class="premium-input w-full pl-8 p-2.5" required>
-                </div>
-                <div class="relative w-1/2">
-                    <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                    <input type="text" placeholder="Last Name" class="premium-input w-full pl-8 p-2.5" required>
-                </div>
+          <!-- First & Last Name Inputs (Split into two columns) -->
+          <div class="flex space-x-3">
+            <div class="relative w-1/2">
+              <i
+                class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+              ></i>
+              <input
+                type="text"
+                placeholder="First Name"
+                class="premium-input w-full pl-8 p-2.5"
+                required
+              />
             </div>
-            
-            <!-- Email Input -->
-            <div class="relative">
-                <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                <input type="email" placeholder="Email Address" class="premium-input w-full pl-8 p-2.5" required>
+            <div class="relative w-1/2">
+              <i
+                class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+              ></i>
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="premium-input w-full pl-8 p-2.5"
+                required
+              />
             </div>
-
-            <!-- Password Input -->
-            <div class="relative">
-                <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                <input type="password" placeholder="New Password" class="premium-input w-full pl-8 p-2.5" required>
-            </div>
-
-            <!-- Profile Image Upload Design -->
-            <div class="p-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between">
-                <span class="text-xs text-gray-600">Profile Picture (Optional)</span>
-                <label class="cursor-pointer bg-gray-100 text-gray-700 text-xs font-medium py-1 px-3 rounded-md hover:bg-gray-200 transition duration-200">
-                    Upload Image
-                    <input type="file" class="hidden">
-                </label>
-            </div>
-
-            <!-- Create Account Button -->
-            <button class="premium-button w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg shadow-md mt-4">
-                Create Account
-            </button>
-            
-            <!-- Login Toggle Link -->
-            <p class="text-center text-xs text-gray-500 pt-3">
-                Already have an account? 
-                <a href="#" onclick="switchForm('login')" class="font-semibold text-orange-600 hover:text-orange-700 transition duration-200">Log In</a>
-            </p>
           </div>
+
+          <!-- Email Input -->
+          <div class="relative">
+            <i
+              class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+            ></i>
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="premium-input w-full pl-8 p-2.5"
+              required
+            />
+          </div>
+
+          <!-- Password Input -->
+          <div class="relative">
+            <i
+              class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+            ></i>
+            <input
+              type="password"
+              placeholder="New Password"
+              class="premium-input w-full pl-8 p-2.5"
+              required
+            />
+          </div>
+
+          <!-- Profile Image Upload Design -->
+          <div
+            class="p-3 rounded-lg border border-gray-200 bg-white flex items-center justify-between"
+          >
+            <span class="text-xs text-gray-600"
+              >Profile Picture (Optional)</span
+            >
+            <label
+              class="cursor-pointer bg-gray-100 text-gray-700 text-xs font-medium py-1 px-3 rounded-md hover:bg-gray-200 transition duration-200"
+            >
+              Upload Image
+              <input type="file" class="hidden" />
+            </label>
+          </div>
+
+          <!-- Create Account Button -->
+          <button
+            class="premium-button w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg shadow-md mt-4"
+          >
+            Create Account
+          </button>
+
+          <!-- Login Toggle Link -->
+          <p class="text-center text-xs text-gray-500 pt-3">
+            Already have an account?
+            <a
+              href="#"
+              onclick="switchForm('login')"
+              class="font-semibold text-orange-600 hover:text-orange-700 transition duration-200"
+              >Log In</a
+            >
+          </p>
+        </div>
 
         <!-- 5. LOGIN Form (Hidden by default) -->
-          <div id="login-form" class="space-y-4 hidden">
-            <h2 class="text-2xl font-bold text-gray-800 mb-5 text-center">Log In</h2>
+        <div id="login-form" class="space-y-4 hidden">
+          <h2 class="text-2xl font-bold text-gray-800 mb-5 text-center">
+            Log In
+          </h2>
 
-            <!-- Email/Username Input -->
-            <div class="relative">
-                <i class="fas fa-user-circle absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                <input type="email" placeholder="Username or Email" class="premium-input w-full pl-8 p-2.5" required>
-            </div>
-
-            <!-- Password Input -->
-            <div class="relative">
-                <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-                <input type="password" placeholder="Password" class="premium-input w-full pl-8 p-2.5" required>
-            </div>
-
-            <!-- Login Button -->
-            <button class="premium-button w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg shadow-md mt-4">
-                Log In
-            </button>
-
-            <!-- Signup Toggle Link -->
-            <p class="text-center text-xs text-gray-500 pt-3">
-                Don't have an account? 
-                <a href="#" onclick="switchForm('signup')" class="font-semibold text-orange-600 hover:text-orange-700 transition duration-200">Sign Up</a>
-            </p>
+          <!-- Email/Username Input -->
+          <div class="relative">
+            <i
+              class="fas fa-user-circle absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+            ></i>
+            <input
+              type="email"
+              placeholder="Username or Email"
+              class="premium-input w-full pl-8 p-2.5"
+              required
+            />
           </div>
 
-        </div> <!-- Form Card Container End -->
-      </div> <!-- Modal Overlay End -->
+          <!-- Password Input -->
+          <div class="relative">
+            <i
+              class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+            ></i>
+            <input
+              type="password"
+              placeholder="Password"
+              class="premium-input w-full pl-8 p-2.5"
+              required
+            />
+          </div>
+
+          <!-- Login Button -->
+          <button
+            class="premium-button w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 rounded-lg shadow-md mt-4"
+          >
+            Log In
+          </button>
+
+          <!-- Signup Toggle Link -->
+          <p class="text-center text-xs text-gray-500 pt-3">
+            Don't have an account?
+            <a
+              href="#"
+              onclick="switchForm('signup')"
+              class="font-semibold text-orange-600 hover:text-orange-700 transition duration-200"
+              >Sign Up</a
+            >
+          </p>
+        </div>
+      </div>
+      <!-- Form Card Container End -->
+    </div>
+    <!-- Modal Overlay End -->
     <script src="js/recipeLoop.js"></script>
+    <script src="js/Bookmark-login.js"></script>
   </body>
 </html>
