@@ -1,0 +1,217 @@
+/* --- Global Variables & Unique Scoped Container --- */
+.custom-food-search-ui-container {
+  /* Harder/Clearer Variable Names: */
+  --theme-main-orange: #ffb74d; /* Soft Orange (Muted) */
+  --theme-dark-contrast: #5d4037; /* Deep Brown/Coffee for strong contrast */
+  --ui-background-light: #fff8e1; /* Very light Creamy Background */
+  --ui-hover-overlay: rgba(255, 183, 77, 0.9); /* Muted Orange Overlay */
+
+  width: 100%;
+  text-align: center;
+  padding: 50px 15px;
+  background-color: var(--ui-background-light);
+  border-radius: 12px; /* Slightly larger border-radius for beauty */
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: var(--theme-dark-contrast);
+  box-sizing: border-box;
+}
+
+/* --- Premium Header --- */
+.custom-food-ui-header {
+  margin-bottom: 40px;
+}
+.custom-food-ui-main-heading {
+  font-size: 1.8em; /* Slightly larger heading */
+  font-weight: 700;
+  color: var(--theme-dark-contrast);
+  margin-bottom: 8px;
+  letter-spacing: 1px; /* More defined letter spacing */
+}
+.custom-food-ui-sub-text {
+  font-size: 0.9em;
+  color: #8d6e63;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Header Animation: Smooth Color Shift */
+@keyframes animated-header {
+  0% {
+    color: var(--theme-dark-contrast);
+  }
+  50% {
+    color: var(--theme-main-orange);
+  }
+  100% {
+    color: var(--theme-dark-contrast);
+  }
+}
+.animated-header {
+  animation: animated-header 5s ease-in-out infinite;
+}
+
+/* --- Card Grid (Optimized for 12 cards, up to 4 columns) --- */
+.custom-food-ui-card-grid {
+  display: grid;
+  /* Adjusts beautifully up to 4 columns */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* --- Food Card Design (Beautiful/Enhanced) --- */
+.custom-food-ui-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Softer initial shadow */
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect: Clean Elevation and Overlay Reveal */
+.custom-food-ui-card:hover {
+  transform: translateY(-8px); /* Higher lift */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+.custom-food-ui-card:hover .custom-food-ui-image-wrapper img {
+  transform: scale(1.05);
+  filter: brightness(
+    0.65
+  ); /* Darker image for better contrast with white text */
+}
+.custom-food-ui-card:hover .custom-food-ui-card-overlay {
+  opacity: 1;
+}
+
+/* --- Card Details Section (Visible Always) --- */
+.custom-food-ui-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #eee;
+  z-index: 10;
+}
+.custom-detail-item {
+  font-size: 0.8em;
+  font-weight: 600;
+  color: var(--theme-dark-contrast);
+}
+.custom-detail-item i {
+  color: var(--theme-main-orange);
+  margin-right: 5px;
+}
+
+/* --- Image Wrapper --- */
+.custom-food-ui-image-wrapper {
+  height: 190px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.custom-food-ui-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out, filter 0.4s;
+}
+
+/* --- Card Overlay Content (Unique/Beautiful) --- */
+.custom-food-ui-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ui-hover-overlay);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* --- SEARCH ICON COLOR IS WHITE AND SMALLER --- */
+.custom-food-ui-search-icon {
+  font-size: 1.4em; /* Smaller size */
+  margin-bottom: 8px; /* Reduced margin */
+  color: white; /* Search icon is WHITE (as requested) */
+
+  /* Animation settings */
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.2s;
+}
+
+/* Individual item reveal setup */
+.custom-food-ui-overlay-title {
+  font-size: 1em; /* Smaller title */
+  font-weight: 700;
+  margin-bottom: 5px;
+  transform: translateY(-15px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.1s;
+}
+
+.custom-food-ui-overlay-text {
+  font-size: 0.75em; /* Smallest text */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: translateY(15px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.3s;
+}
+
+/* Final Hover State (Snapping items into place with fade-in) */
+.custom-food-ui-card:hover .custom-food-ui-overlay-title,
+.custom-food-ui-card:hover .custom-food-ui-search-icon,
+.custom-food-ui-card:hover .custom-food-ui-overlay-text {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* --- Card Load Animation (Staggered Fade-in) --- */
+@keyframes custom-slide-in-anim {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.custom-slide-in {
+  opacity: 0;
+  animation: custom-slide-in-anim 0.6s ease-out forwards;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .custom-food-ui-card-grid {
+    /* Mobile: 2 columns */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  .custom-food-ui-image-wrapper {
+    height: 160px;
+  }
+  .custom-food-search-ui-container {
+    padding: 30px 10px;
+  }
+}

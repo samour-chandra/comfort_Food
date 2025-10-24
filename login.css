@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Modal Overlay for Background Blur */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-card-animation {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+.modal-overlay.show .form-card-animation {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.premium-input {
+    border: 1px solid #D1D5DB; 
+    background-color: #F9FAFB;
+    border-radius: 0.5rem; 
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+}
+
+.premium-input:focus {
+    outline: none;
+    border-color: #F97316;
+    /* Subtle ring effect on focus */
+    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5); 
+    background-color: white;
+}
+
+.premium-button {
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.premium-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+}

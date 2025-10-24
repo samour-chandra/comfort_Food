@@ -1,0 +1,31 @@
+import { API_URL } from "./config.js";
+
+export const state = {
+  recipe: {},
+};
+
+export const loadRecipe = async function (id) {
+  try {
+    const res = await fetch(
+      `${API_URL}/${id}`
+    );
+    const data = await res.json();
+    console.log("hello world  data fetchin is complete ");
+    if (!res.ok)
+      throw new Error(`There is have some error the error is ${data.message}`);
+    let { recipe } = data.data;
+    state.recipe = {
+      id: recipe.id,
+      title: recipe.title,
+      publisher: recipe.publisher,
+      sourceUrl: recipe.source_url,
+      image: recipe.image_url,
+      servings: recipe.servings,
+      cookingTime: recipe.cooking_time,
+      ingredients: recipe.ingredients,
+    };
+    console.log(recipe);
+  } catch (err) {
+    throw err;
+  }
+};
