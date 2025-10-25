@@ -1,18 +1,18 @@
-import { API_URL } from "./config.js";
+import { API_URL, REG_PER_PAGE } from "./config.js";
+import { getJson } from "./views/helperfun.js";
 
 export const state = {
   recipe: {},
+  search: {
+    query: "",
+    results: [],
+    resultsPerPage: REG_PER_PAGE,
+  },
 };
 
 export const loadRecipe = async function (id) {
   try {
-    const res = await fetch(
-      `${API_URL}/${id}`
-    );
-    const data = await res.json();
-    console.log("hello world  data fetchin is complete ");
-    if (!res.ok)
-      throw new Error(`There is have some error the error is ${data.message}`);
+    const data = await getJson(`${API_URL}${id}`);
     let { recipe } = data.data;
     state.recipe = {
       id: recipe.id,
@@ -24,8 +24,30 @@ export const loadRecipe = async function (id) {
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
-    console.log(recipe);
   } catch (err) {
     throw err;
   }
+};
+
+export const loadSearchRecipe = async function (query) {
+  try {
+    state.search.query = query;
+    const data = await getJson(`${API_URL}?search=${query}`);
+    state.search.results = data.data.recipes.map((ing) => {
+      return {
+        id: ing.id,
+        title: ing.title,
+        publisher: ing.publisher,
+        image: ing.image_url,
+      };
+    });
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getSearchReulstPage = function (page) {
+  const starIndex = (page - 1) * state.search.resultsPerPage;
+  const endIndex = page * state.search.resultsPerPage;
+  return state.search.results.slice(starIndex, endIndex);
 };

@@ -1,22 +1,18 @@
-class recipeView {
-  #parentElement = document.querySelector(".main-content");
-  #data;
-  render(data) {
-    this.#data = data;
-    this.#clearHtml();
-    const markup = this.#generateMarkup();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
-  }
-  #clearHtml() {
-    this.#parentElement.innerHTML = "";
+import view from "./view.js";
+
+class recipeView extends view {
+  _parentElement = document.querySelector(".main-content");
+
+  addHandlerRender(handel) {
+    window.addEventListener("hashchange", handel);
   }
 
-  mainError = function () {
+  showError = function (massage = "Error: Recipe Dish Missing") {
     const messageErr = `
         <div class="main-recipe-error-full">
             <div class="header-line">
               <span class="support-icon">🧑‍🍳</span>
-              <p class="error-code">Error: Recipe Dish Missing</p>
+              <p class="error-code">${massage}</p>
             </div>
 
             <div class="animation-area">
@@ -38,11 +34,11 @@ class recipeView {
             </a>
         </div>
   `;
-    this.#clearHtml();
-    this.#parentElement.insertAdjacentHTML("afterbegin", messageErr);
+    this._clearHtml();
+    this._parentElement.insertAdjacentHTML("afterbegin", messageErr);
   };
 
-  mainSkeliton = function (parentEl) {
+  mianSkeliton = function () {
     const skeliton = `
   <div class="main-content">
             <div class="content-skeleton">
@@ -71,23 +67,23 @@ class recipeView {
             </div>
           </div>
   `;
-    this.#clearHtml();
-    this.#parentElement.insertAdjacentHTML("afterbegin", skeliton);
+    this._clearHtml();
+    this._parentElement.insertAdjacentHTML("afterbegin", skeliton);
   };
 
-  #generateMarkup() {
+  _generateMarkup() {
     return `
     <div class="recipe-detail-box">
             <figure class="recipe__fig">
               <img
-                src="${this.#data.image}"
+                src="${this._data.image}"
                 alt="Gourmet Dish"
                 class="recipe__img"
               />
             </figure>
 
             <h1 class="recipe__title">
-              <span style="white-space: pre-line;">${this.#data.title}</span>
+              <span style="white-space: pre-line;">${this._data.title}</span>
             </h1>
 
             <div class="recipe__details">
@@ -96,7 +92,7 @@ class recipeView {
                   ><i class="fas fa-clock"></i
                 ></span>
                 <span class="recipe__info-data recipe__info-data--minutes"
-                  >${this.#data.cookingTime}</span
+                  >${this._data.cookingTime}</span
                 >
                 <span class="recipe__info-text">MINUTES</span>
               </div>
@@ -106,7 +102,7 @@ class recipeView {
                   ><i class="fas fa-users"></i
                 ></span>
                 <span class="recipe__info-data recipe__info-data--people"
-                  >${this.#data.servings}</span
+                  >${this._data.servings}</span
                 >
                 <span class="recipe__info-text">SERVINGS</span>
 
@@ -129,8 +125,8 @@ class recipeView {
               <div class="recipe__ingredients-box">
                 <h2 class="heading--2">Ingredients Checklist</h2>
                 <ul class="recipe__ingredient-list">
-                ${this.#data.ingredients
-                  .map(this.#generateMarkupIngradient)
+                ${this._data.ingredients
+                  .map(this._generateMarkupIngradient)
                   .join("")}
                 </ul>
               </div>
@@ -139,12 +135,12 @@ class recipeView {
                 <h2 class="heading--2">How to cook it</h2>
                 <p class="recipe__directions-text">
                   This gourmet recipe was lovingly crafted by **${
-                    this.#data.publisher
+                    this._data.publisher
                   }**.
                   Follow the detailed steps below for a stunning result.
                 </p>
                 <a class="btn--small recipe__btn" href="${
-                  this.#data.sourceUrl
+                  this._data.sourceUrl
                 }" target="_blank">
                   <span>VIEW FULL GUIDE</span>
                   <i class="fas fa-arrow-right small-arrow"></i>
@@ -155,16 +151,16 @@ class recipeView {
     `;
   }
 
-  #generateMarkupIngradient(ing) {
+  _generateMarkupIngradient(ing) {
     return `<li class="recipe__ingredient">
                     <i class="fas fa-check-circle small-check"></i>
                     <div class="recipe__quantity">${
-                      ing.quantity ? ing.quantity : ""
+                      ing.quantity ? "" : ""
                     }</div>
                     <div class="recipe__description">
-                      <span class="recipe__unit">${
-                        ing.unit ? ing.unit : "🍳"
-                      }</span> Ricotta Cheese
+                      <span class="recipe__unit"> ${
+                        ing.quantity ? ing.quantity : ""
+                      } ${ing.unit ? ing.unit : "🍳"} ${ing.description} </span>
                     </div>
                   </li>`;
   }

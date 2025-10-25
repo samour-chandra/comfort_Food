@@ -4,23 +4,30 @@
 
 /* --- GENERAL APP COLORS --- */
 :root {
-  --primary-color: #ff6347; /* Main brand color (Tomato) */
-  --primary-color-dark: #e5533d;
-  --background-color: #f8f9fa; /* Page background */
-  --surface-color: #ffffff; /* Header or card background */
-  --text-primary: #2c3e50; /* Primary text color */
-  --text-secondary: #7f8c8d; /* Light text color */
-  --border-color: #ecf0f1; /* Border color */
-  --shadow-color: rgba(0, 0, 0, 0.08);
-  --focus-ring-color: rgba(255, 99, 71, 0.3);
+  /* Main UI Theme (Global) */
+  --primary-color: #ff6347; /* Main brand color (Tomato - for buttons/accents) */
+  --primary-color-dark: #e5533d; /* Darker primary for hover states */
+  --background-color: #f8f9fa; /* Page background (Light gray) */
+  --surface-color: #ffffff; /* Header or card background (White) */
+  --text-primary: #2c3e50; /* Primary text color (Dark blue/gray) */
+  --text-secondary: #7f8c8d; /* Light text color (Muted gray) */
+  --border-color: #ecf0f1; /* Border color (Very light gray) */
+  --shadow-color: rgba(0, 0, 0, 0.08); /* Light shadow for elements */
+  --focus-ring-color: rgba(
+    255,
+    99,
+    71,
+    0.3
+  ); /* Focus ring effect based on primary color */
 }
 
 /* --- RECIPE DETAIL (PREMIUM THEME) COLORS --- */
 :root {
-  --color-primary: #e65100; /* Deep Burnt Orange (Main Accent) */
-  --color-secondary: #ffb300; /* Rich Amber Gold (Highlight) */
+  /* Recipe Detail Specific Theme (Overrides/Additions) */
+  --color-primary: #e65100; /* Deep Burnt Orange (Main Accent for details) */
+  --color-secondary: #ffb300; /* Rich Amber Gold (Highlight for headings) */
   --color-title-bg: #3e2723; /* Dark Espresso Brown for Title Background */
-  --color-text-dark: #424242; /* Dark Charcoal for Headings */
+  --color-text-dark: #424242; /* Dark Charcoal for Headings/Info */
   --color-text-gray: #bdbdbd; /* Muted Light Gray */
   --color-bg-light: #fffde7; /* Extra Light Cream/Yellowish White */
   --color-white: #ffffff;
@@ -32,11 +39,11 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Global box-model reset */
 }
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -46,13 +53,13 @@ body {
 .container-main-app {
   position: relative;
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the main content */
 }
 
 .content-container {
   display: flex;
   padding: 20px 30px;
-  gap: 30px;
+  gap: 30px; /* Space between sidebar and main content */
   min-height: 80vh;
 }
 
@@ -69,7 +76,7 @@ body {
   align-items: center;
   box-shadow: 0 2px 8px var(--shadow-color);
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
 }
 
 /* Logo and Title Section */
@@ -98,16 +105,9 @@ body {
 
 /* Shadow effect on focus */
 
-.search-container .search-form {
-  display: flex;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .search-container:focus-within {
   border-color: transparent;
-  box-shadow: 0 0 0 3px var(--focus-ring-color);
+  box-shadow: 0 0 0 3px var(--focus-ring-color); /* Custom focus ring */
 }
 
 .search-container input[type="text"] {
@@ -115,6 +115,8 @@ body {
   padding: 12px 20px;
   font-size: 16px;
   border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
   outline: none;
   background-color: transparent;
   color: var(--text-primary);
@@ -126,7 +128,7 @@ body {
   background-color: var(--primary-color);
   color: white;
   cursor: pointer;
-  border-radius: 0 50px 50px 0;
+  border-radius: 0 50px 50px 0; /* Rounded right side */
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
@@ -148,7 +150,7 @@ body {
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
   padding: 10px 20px;
-  border-radius: 50px;
+  border-radius: 50px; /* Pill shape */
   cursor: pointer;
   font-size: 15px;
   font-weight: 600;
@@ -168,7 +170,7 @@ body {
 /* ========================================================= */
 
 .left-sidebar {
-  width: 35%;
+  width: 45%; /* Takes up 35% of the content area */
   overflow-y: auto;
   border-right: 1px solid var(--border-color);
   padding-right: 30px;
@@ -180,26 +182,69 @@ body {
   list-style: none;
   padding: 0;
   margin: 0 0 20px 0;
-  flex-grow: 1;
-  overflow-y: hidden;
+  flex-grow: 1; /* Allows list to fill available space */
+  overflow-y: hidden; /* Handled by sidebar parent */
 }
 
 /* Individual Food Item (LI) Styles */
+
+@keyframes activePulseShadow {
+  0% {
+    transform: translateY(-2px);
+    /* Shadow: Khub Halka Black/Grey Glow (Neutral) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(0, 0, 0, 0.05);
+  }
+  50% {
+    transform: translateY(-4px);
+    /* Shadow: Transparent Black Glow Ar Beshi Halka */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(0, 0, 0, 0.05);
+  }
+}
+
 .food-item {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color, #e0e0e0);
+  cursor: pointer;
+  background-color: var(--surface-color, #ffffff);
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.food-link {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
   padding: 10px;
-  background-color: var(--surface-color);
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.food-item.active {
+  /* Border: Orange Accent Color (Highlight) */
+  border-color: #ff9800;
+
+  /* Animation: Top-to-Bottom Pulse and Glow */
+  transform: translateY(-2px);
+  animation: activePulseShadow 1.5s ease-in-out infinite alternate;
+}
+
+.food-item.active:hover {
+  transform: translateY(-5px);
+  /* Stronger, transparent black shadow on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 0 6px rgba(0, 0, 0, 0.15);
+  animation: none;
 }
 
 .food-item:hover {
-  box-shadow: 0 2px 8px var(--shadow-color);
-  border-color: var(--primary-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Hover border uses orange */
+  border-color: #ff9800;
+  transform: translateY(-1px);
 }
 
 .food-item img {
@@ -210,7 +255,9 @@ body {
   margin-right: 12px;
   flex-shrink: 0;
 }
-
+/* make css for active left side item */
+/* ///////////////////////////////////////////////////////////////// */
+/* item details start and acitve class end*/
 .item-details {
   flex-grow: 1;
 }
@@ -234,20 +281,20 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Ensures controls don't shrink */
 }
 
 .pagination-controls button {
   background-color: var(--surface-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   transition: background-color 0.2s, color 0.2s;
-  width: 48%;
+  width: 48%; /* Allows two buttons to fit with space in between */
 }
 
 .pagination-controls button:hover {
@@ -266,7 +313,7 @@ body {
 /* ========================================================= */
 
 .main-content {
-  width: 65%;
+  width: 55%; /* Takes up 65% of the content area */
   padding-left: 0;
 }
 
@@ -283,9 +330,8 @@ body {
 /* Image Section */
 .recipe__fig {
   position: relative;
-  flex: 0 0 25vh;
+  flex: 0 0 25vh; /* Initial height based on viewport */
   max-height: 400px;
-  /* width: 100%; */
 }
 
 .recipe__img {
@@ -293,7 +339,7 @@ body {
   height: 100%;
   object-fit: cover;
   max-height: 400px;
-  filter: brightness(0.75) grayscale(0.1);
+  filter: brightness(0.75) grayscale(0.1); /* Subtle image filter */
 }
 
 /* Title Styling */
@@ -302,7 +348,6 @@ body {
   position: static;
   transform: none;
   display: inline;
-  /* background-color: linear-gradient(to right bottom, #fbdb89, #f48982); */
   background-color: #f48982;
   color: var(--background-color);
   padding: 0.8rem 3rem;
@@ -311,7 +356,6 @@ body {
   text-align: left;
   text-transform: uppercase;
   line-height: 1;
-  /* letter-spacing: 0.15rem; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 .recipe__title span {
@@ -321,9 +365,9 @@ body {
   margin-bottom: 10px;
 }
 
-/* Details Section */
+/* Details Section (Servings, Time, Bookmark) */
 .recipe__details {
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* Fixed height for details bar */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -390,7 +434,7 @@ body {
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  margin-left: auto;
+  margin-left: auto; /* Pushes button to the right */
   box-shadow: 0 0.5rem 0.5rem rgba(61, 60, 60, 0.1);
   cursor: pointer;
   display: flex;
@@ -401,13 +445,12 @@ body {
 
 .bookmark-icon {
   color: var(--color-white);
-  /* color: rgb(253, 153, 2); */
   font-size: 1.2rem;
 }
 
 /* Main Content (Ingredients & Directions) */
 .recipe-main-sections {
-  flex-grow: 1;
+  flex-grow: 1; /* Takes up all remaining space */
   display: flex;
   flex-direction: column;
 }
@@ -416,7 +459,7 @@ body {
   flex-grow: 1;
   padding: 2rem 4rem 1.5rem 4rem;
   background-color: var(--color-white);
-  overflow-y: auto;
+  overflow-y: auto; /* Allows scrolling for long ingredient lists */
 }
 
 /* Headings */
@@ -439,13 +482,13 @@ body {
   position: absolute;
   bottom: -0.6rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* Centered underline effect */
 }
 
 .recipe__ingredient-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Two columns for ingredients */
   gap: 0.8rem 2rem;
 }
 
@@ -472,7 +515,7 @@ body {
 
 /* Directions (Fixed Footer) */
 .recipe__directions {
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* Fixed height footer area */
   padding: 1.5rem 4rem;
   text-align: center;
   background-color: var(--color-bg-light);
@@ -498,7 +541,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ✨ Back shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Back shadow */
 }
 
 .btn--small:hover {
@@ -520,7 +563,7 @@ body {
 @media (max-width: 992px) {
   /* Header Layout Change */
   .main-header {
-    flex-direction: column;
+    flex-direction: column; /* Stacks header items vertically */
     align-items: center;
     padding: 20px;
   }
@@ -536,7 +579,7 @@ body {
     order: 2;
   }
   .recipe__ingredient-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr); /* Single column for ingredients */
   }
 }
 
@@ -544,7 +587,7 @@ body {
 @media (max-width: 768px) {
   /* Main Content Layout Change (Sidebar becomes full width) */
   .content-container {
-    flex-direction: column;
+    flex-direction: column; /* Sidebar and main content stack vertically */
   }
   .left-sidebar,
   .main-content {
@@ -564,11 +607,11 @@ body {
 
   /* Action Buttons become circular icons only */
   .action-button span {
-    display: none;
+    display: none; /* Hides text labels */
   }
   .action-button {
     padding: 12px;
-    border-radius: 50%;
+    border-radius: 50%; /* Makes buttons circular */
     font-size: 18px;
   }
   .header-actions {
@@ -588,7 +631,7 @@ body {
   }
 
   .recipe__details {
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows info items to wrap */
     padding: 0.8rem 0.5rem;
     gap: 1rem;
     justify-content: space-around;
@@ -599,7 +642,7 @@ body {
   }
 
   .recipe__ingredient-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column layout for small screens */
     gap: 0.8rem;
   }
 

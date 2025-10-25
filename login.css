@@ -1,64 +1,213 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /* Modal Overlay for Background Blur */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
-    z-index: 50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle dark overlay */
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.show {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .form-card-animation {
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.4s ease-out;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease-out;
 }
 
 .modal-overlay.show .form-card-animation {
-    transform: translateY(0);
-    opacity: 1;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .premium-input {
-    border: 1px solid #D1D5DB; 
-    background-color: #F9FAFB;
-    border-radius: 0.5rem; 
-    transition: all 0.2s ease;
-    font-size: 0.875rem;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
 }
 
 .premium-input:focus {
-    outline: none;
-    border-color: #F97316;
-    /* Subtle ring effect on focus */
-    box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5); 
-    background-color: white;
+  outline: none;
+  border-color: #f97316;
+  /* Subtle ring effect on focus */
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.5);
+  background-color: white;
 }
 
 .premium-button {
-    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  font-size: 0.95rem;
 }
 
 .premium-button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.3);
+}
+
+/* ///////////////////////////////////////////// */
+
+/* Custom Vanilla CSS for Premium Mixed Error Skeleton */
+
+/* Google Font Import (Assuming you link this in your HTML <head>) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap'); */
+
+/* === BASE STYLES & CONTAINER === */
+
+/* Base style for list items (Reduced Height) */
+.skeleton-error-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Reduced padding for small height (Mobile/30% Width) */
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 10px;
+
+  /* Error Theme */
+  background: linear-gradient(145deg, #fefefe, #fceaea);
+  border: 1px solid #fbd0d0;
+  transition: transform 0.3s ease-out;
+}
+
+.skeleton-error-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.08);
+}
+
+/* === ICON BOX & ANIMATION === */
+.error-icon-box {
+  /* Small Icon Size */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 12px;
+
+  /* Default Food Error Color */
+  background-color: #e94e77;
+  box-shadow: 0 0 8px rgba(233, 78, 119, 0.7);
+  flex-shrink: 0;
+}
+
+.error-icon-box i {
+  font-size: 18px; /* text-base */
+  color: #fff;
+  animation: connection-check 1.5s infinite alternate;
+}
+
+/* Specific Style for Wi-Fi/Connection Error */
+.wifi-error-box {
+  background-color: #ff5555;
+  box-shadow: 0 0 8px rgba(255, 85, 85, 0.7);
+}
+
+/* === TEXT STYLES (Poppins Emulation) === */
+.skeleton-details {
+  flex-grow: 1;
+  font-family: "Poppins", sans-serif;
+}
+
+.error-text-title {
+  font-size: 0.375rem; /* Small text */
+  font-weight: 600;
+  color: #d13a62;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.error-text-shop {
+  font-size: 0.65rem; /* Extra small text */
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.2;
+}
+
+/* === SHIMMER EFFECT === */
+.shimmer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 25%,
+    rgba(255, 200, 200, 0.4) 50%,
+    transparent 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-connection 2s infinite linear;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* === ANIMATION KEYFRAMES === */
+@keyframes connection-check {
+  0% {
+    transform: scale(0.9) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) rotate(-5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer-connection {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* === RESPONSIVENESS TWEAKS (For wider screens or 30% width on large desktop) === */
+@media (min-width: 640px) {
+  .skeleton-error-item {
+    padding: 12px 15px; /* Slightly more room on bigger screens */
+  }
+  .error-icon-box {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+  }
+  .error-icon-box i {
+    font-size: 18px;
+  }
+  .error-text-title {
+    font-size: 1rem;
+  }
+  .error-text-shop {
+    font-size: 0.875rem;
+  }
 }

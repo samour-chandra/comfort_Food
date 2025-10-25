@@ -11,6 +11,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "accent-coral": "#FF7F50" /* Soft Coral/Light Orange */,
+              "accent-dark": "#E66A3D" /* Slightly darker for contrast */,
+              "background-light": "#F4F5F7" /* Very light gray */,
+              "text-dark": "#334155" /* Slate/Dark Text */,
+              "input-bg": "#FFFFFF",
+            },
+          },
+        },
+      };
+    </script>
     <!-- css file here -->
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="login.css" />
@@ -29,22 +44,23 @@
           <img src="images/food.png" alt="Food Logo" />
         </div>
 
-        <div class="search-container">
+        <form class="search-container">
           <input
             type="text"
             id="search-input"
+            class="search__input"
             name="searchQuery"
             placeholder="Search for recipes..."
           />
           <button type="submit">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-        </div>
+        </form>
 
         <div class="header-actions">
           <button class="action-button login-button">
             <i class="fa-solid fa-user"></i>
-            <span>Account</span>
+            <span>Login</span>
           </button>
           <button class="action-button book-mark-button" id="myBookmarkToggle">
             <i class="fa-solid fa-bookmark"></i>
@@ -56,7 +72,7 @@
       <div id="twBookmarkSidebar" class="tw-bookmark-sidebar">
         <a href="javascript:void(0)" class="tw-closebtn">&times;</a>
         <h2 class="tw-sidebar-title">My Marked foods</h2>
-        <ul id="twFoodList" class="tw-food-list">
+        <ul id="twFoodList" class="tw-food-list food-list-left">
           <li class="tw-food-item" id="tw-item-1">
             <img src="images/download14.jpeg" alt="Spicy Chili Noodles" />
             <div class="tw-item-details">
@@ -148,8 +164,8 @@
           <ul class="food-list">
             <a href="#fegw5ed6604591c37cdc054bc90b">Recipe</a>
             <a href="#5ed6604591c37cdc054bc886">Recipe</a>
-            <!-- This is the food list Searching 
-            <li class="search-result-item skeleton-list-item">
+            <!-- This is the food list Searching -->
+            <!-- <li class="search-result-item skeleton-list-item">
               <div class="skeleton-image-placeholder"></div>
               <div class="item-details">
                 <div class="item-title skeleton-line short"></div>
@@ -180,38 +196,81 @@
                 <div class="item-desc skeleton-line full"></div>
               </div>
             </li> -->
+            <!-- this is for food-list er li er error message start  -->
+            <!-- <li class="skeleton-error-item">
+              <div class="shimmer-bg"></div>
+              <div class="error-icon-box wifi-error-box">
+                <i class="fas fa-wifi"></i>
+              </div>
+              <div class="skeleton-details">
+                <div class="error-text-title">Internet Problem !</div>
+                <div class="error-text-shop">Please check your Connection</div>
+              </div>
+            </li>
+
+            <li class="skeleton-error-item">
+              <div class="shimmer-bg"></div>
+              <div class="error-icon-box">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="skeleton-details">
+                <div class="error-text-title">Recipe Not Found !</div>
+                <div class="error-text-shop">Try other one please</div>
+              </div>
+            </li>
+
+            <li class="skeleton-error-item">
+              <div class="shimmer-bg"></div>
+              <div class="error-icon-box">
+                <i class="fas fa-carrot"></i>
+              </div>
+              <div class="skeleton-details">
+                <div class="error-text-title">Ingredient Error</div>
+                <div class="error-text-shop">
+                  ingredient failed to load: please refresh.
+                </div>
+              </div>
+            </li> -->
+            <!-- this is for food-list er li er error message start  -->
 
             <!-- loding End -->
             <li class="food-item">
-              <img src="images/recipe 1.jpeg" alt="Spicy Noodles" />
-              <div class="item-details">
-                <h3 class="food-title">Spicy Chili Noodles</h3>
-                <p class="shop-name">The Noodle Hub</p>
-              </div>
+              <a href="#5ed6604591c37cdc054bc886" class="food-link">
+                <img src="images/recipe 1.jpeg" alt="Spicy Noodles" />
+                <div class="item-details">
+                  <h3 class="food-title">Spicy Chili Noodles</h3>
+                  <p class="shop-name">The Noodle Hub</p>
+                </div>
+              </a>
             </li>
             <li class="food-item">
-              <img src="images/download11.jpeg" alt="Spicy Noodles" />
-              <div class="item-details">
-                <h3 class="food-title">Spicy Chili Noodles</h3>
-                <p class="shop-name">The Noodle Hub</p>
-              </div>
+              <a href="#54655" class="food-link">
+                <img src="images/download11.jpeg" alt="Spicy Noodles" />
+                <div class="item-details">
+                  <h3 class="food-title">Spicy Chili Noodles</h3>
+                  <p class="shop-name">The Noodle Hub</p>
+                </div>
+              </a>
             </li>
 
             <li class="food-item">
-              <img src="images/download10.jpeg" alt="Chicken Biryani" />
+             <a href="#" class="food-link">
+               <img src="images/download10.jpeg" alt="Chicken Biryani" />
               <div class="item-details">
                 <h3 class="food-title">Classic Chicken Biryani</h3>
                 <p class="shop-name">Bhojona Ghor</p>
               </div>
+             </a>
             </li>
-
-            <li class="food-item">
-              <img src="images/download12.jpeg" alt="Chocolate Cake" />
+            <li class="food-item active">
+             <a href="#asdno" class="food-link">
+               <img src="images/download12.jpeg" alt="Chocolate Cake" />
               <div class="item-details">
                 <h3 class="food-title">Velvet Chocolate Cake</h3>
                 <p class="shop-name">Sweet Corner Bakery</p>
               </div>
             </li>
+             </a>
           </ul>
           <!-- pagination container here -->
           <div class="pagination-controls">
@@ -384,6 +443,270 @@
           <!-- recipe detail box end -->
         </section>
       </main>
+      <!-- this is add recipe seciton  -->
+      <div
+        id="main-content"
+        class="container mx-auto p-4 md:p-12 transition-filter duration-300"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center justify-between p-8 md:p-10 rounded-2xl shadow-xl bg-white border-b-4 border-accent-coral/80"
+        >
+          <div class="text-left md:w-3/4 mb-6 md:mb-0">
+            <p
+              class="text-sm font-medium text-gray-500 uppercase tracking-widest mb-1"
+            >
+              Recipe Submission
+            </p>
+            <h2 class="text-3xl font-semibold text-text-dark mb-2">
+              Contribute Your Culinary Masterpiece
+            </h2>
+            <p class="text-base text-gray-500 max-w-xl">
+              Share your favorite and personal recipes with our exclusive
+              community.
+            </p>
+          </div>
+
+          <button
+            id="open-modal-btn"
+            class="flex-shrink-0 flex items-center space-x-2 px-6 py-3 rounded-lg bg-accent-coral hover:bg-accent-dark text-white font-medium text-base shadow-lg transition duration-300"
+          >
+            <i class="fas fa-plus text-lg"></i>
+            <span>ADD RECIPE</span>
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="recipe-modal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center p-4"
+      >
+        <div
+          id="modal-overlay"
+          class="absolute inset-0 bg-gray-900 opacity-70"
+        ></div>
+
+        <div
+          id="modal-content"
+          class="relative bg-input-bg rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-hidden p-6 md:p-8 transform scale-95 opacity-0 border-t-8 border-accent-coral"
+        >
+          <button
+            id="close-modal-btn"
+            class="absolute top-4 right-4 text-gray-400 focus:outline-none bg-white rounded-full p-2 z-10"
+            style="transition: none !important"
+          >
+            <i class="fas fa-times text-xl"></i>
+          </button>
+
+          <h3
+            class="text-2xl font-semibold text-text-dark mb-2 border-b border-gray-200 pb-2"
+          >
+            New Recipe Submission
+          </h3>
+          <p class="text-sm text-gray-500 mb-6">
+            Enter details and ingredients below.
+          </p>
+
+          <form id="recipe-form" action="#" method="POST" class="space-y-4">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[60vh] md:max-h-full overflow-y-auto pr-4 md:pr-0"
+            >
+              <div class="space-y-4">
+                <h4
+                  class="text-lg font-semibold text-text-dark border-b border-gray-200 pb-1 flex items-center"
+                >
+                  <i class="fas fa-utensils mr-2 text-accent-coral"></i> Core
+                  Details
+                </h4>
+
+                <div class="relative">
+                  <i
+                    class="fas fa-bookmark absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                  ></i>
+                  <input
+                    type="text"
+                    name="recipe_title"
+                    placeholder="Recipe Title"
+                    class="premium-input pl-11 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    required
+                  />
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="relative">
+                    <i
+                      class="fas fa-user-circle absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                    ></i>
+                    <input
+                      type="text"
+                      name="publisher"
+                      placeholder="Publisher"
+                      class="premium-input pl-9 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-users-crown absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                    ></i>
+                    <input
+                      type="number"
+                      name="servings"
+                      placeholder="Servings"
+                      class="premium-input pl-9 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="relative">
+                    <i
+                      class="fas fa-hourglass absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                    ></i>
+                    <input
+                      type="text"
+                      name="cooking_time"
+                      placeholder="Cooking Time"
+                      class="premium-input pl-9 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-link absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                    ></i>
+                    <input
+                      type="url"
+                      name="detail_url"
+                      placeholder="Detail URL"
+                      class="premium-input pl-9 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    />
+                  </div>
+                </div>
+                <div class="relative">
+                  <i
+                    class="fas fa-camera-retro absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"
+                  ></i>
+                  <input
+                    type="url"
+                    name="image_url"
+                    placeholder="Recipe Image URL"
+                    class="premium-input pl-11 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    required
+                  />
+                </div>
+                <div class="relative">
+                  <i
+                    class="fas fa-edit absolute left-4 top-3 text-gray-400 text-sm"
+                  ></i>
+                  <textarea
+                    name="description"
+                    placeholder="Recipe Description/Summary"
+                    rows="3"
+                    class="premium-input pl-11 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <h4
+                  class="text-lg font-semibold text-text-dark border-b border-gray-200 pb-1 flex items-center"
+                >
+                  <i class="fas fa-list-check mr-2 text-accent-coral"></i>
+                  Ingredients (6 Items)
+                </h4>
+
+                <div class="grid grid-cols-1 gap-3">
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_1"
+                      id="ing_1"
+                      placeholder="Ingredient 1"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_2"
+                      id="ing_2"
+                      placeholder="Ingredient 2"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_3"
+                      id="ing_3"
+                      placeholder="Ingredient 3"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                      required
+                    />
+                  </div>
+
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_4"
+                      id="ing_4"
+                      placeholder="Ingredient 4"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_5"
+                      id="ing_5"
+                      placeholder="Ingredient 5"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    />
+                  </div>
+                  <div class="relative">
+                    <i
+                      class="fas fa-arrow-right-to-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xs"
+                    ></i>
+                    <input
+                      type="text"
+                      name="ingredient_6"
+                      id="ing_6"
+                      placeholder="Ingredient 6"
+                      class="premium-input pl-8 w-full p-2 border border-gray-300 rounded-md bg-input-bg font-normal"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-6 flex justify-end">
+              <button
+                type="submit"
+                class="py-2 px-6 rounded-lg bg-accent-coral hover:bg-accent-dark text-white font-medium text-base shadow-lg transition duration-300 hover:shadow-xl"
+              >
+                <i class="fas fa-circle-check mr-2"></i> SUBMIT RECIPE
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- this is add recipe seciton  -->
 
       <!-- footer section here -->
       <footer class="bg-custom-dark text-gray-200 pt-10 pb-6">
@@ -480,7 +803,7 @@
               <div class="flex space-x-4">
                 <!-- Facebook -->
                 <a
-                  href="#"
+                  href="https://www.facebook.com/samour.chandra"
                   target="_blank"
                   class="text-gray-400 hover:text-blue-500 transition duration-200"
                   aria-label="Facebook"
@@ -489,7 +812,7 @@
                 </a>
                 <!-- WhatsApp -->
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/01303784072"
                   target="_blank"
                   class="text-gray-400 hover:text-green-500 transition duration-200"
                   aria-label="WhatsApp"
@@ -498,7 +821,7 @@
                 </a>
                 <!-- GitHub (Git) -->
                 <a
-                  href="#"
+                  href="https://github.com/samour-chandra/"
                   target="_blank"
                   class="text-gray-400 hover:text-white transition duration-200"
                   aria-label="GitHub"
@@ -703,5 +1026,6 @@
     <!-- Modal Overlay End -->
     <script src="js/recipeLoop.js"></script>
     <script src="js/Bookmark-login.js"></script>
+    <script src="addRecipe.js"></script>
   </body>
 </html>
