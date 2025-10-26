@@ -278,35 +278,51 @@ body {
 
 /* Pagination Button Styles */
 .pagination-controls {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  flex-shrink: 0; /* Ensures controls don't shrink */
+  margin: 0 auto;
+  position: relative;
+  width: 250px;
+  height: 36px;
 }
 
 .pagination-controls button {
   background-color: var(--surface-color);
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
-  padding: 4px 8px;
+  padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   transition: background-color 0.2s, color 0.2s;
-  width: 48%; /* Allows two buttons to fit with space in between */
+
+  position: absolute;
+  top: 0;
+}
+
+.pagination-controls .prev-button {
+  left: 0;
+}
+
+.pagination-controls .next-button {
+  right: -10px;
 }
 
 .pagination-controls button:hover {
   background-color: var(--primary-color);
   color: white;
 }
+
 .pagination-controls button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   background-color: var(--background-color);
   color: var(--text-secondary);
   border-color: var(--border-color);
+}
+
+.pagination-controls .hidden-placeholder {
+  visibility: hidden;
+  pointer-events: none;
 }
 
 /* 6. RIGHT MAIN CONTENT (RECIPE DETAIL) STYLES */
@@ -339,7 +355,7 @@ body {
   height: 100%;
   object-fit: cover;
   max-height: 400px;
-  filter: brightness(0.75) grayscale(0.1); /* Subtle image filter */
+  /* filter: brightness(0.75) grayscale(0.1); Subtle image filter */
 }
 
 /* Title Styling */

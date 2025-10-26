@@ -6,6 +6,7 @@ export const state = {
   search: {
     query: "",
     results: [],
+    page: 1,
     resultsPerPage: REG_PER_PAGE,
   },
 };
@@ -41,12 +42,14 @@ export const loadSearchRecipe = async function (query) {
         image: ing.image_url,
       };
     });
+    state.search.page = 1;
   } catch (err) {
     throw err;
   }
 };
 
-export const getSearchReulstPage = function (page) {
+export const getSearchReulstPage = function (page = state.search.page) {
+  state.search.page = page;
   const starIndex = (page - 1) * state.search.resultsPerPage;
   const endIndex = page * state.search.resultsPerPage;
   return state.search.results.slice(starIndex, endIndex);
